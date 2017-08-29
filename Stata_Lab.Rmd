@@ -25,7 +25,7 @@ General tips for readability
     + Bad: age2, age_m
 - Use \/\*comments\*\/ to help people understand your program (including you!)
 - Limit line length to something like 80 characters
-- Put spaces between operational signs and the such
+- Put spaces between operational signs and the such; use spaces to indent, not tabs
 
 ----
 ```{Stata eval=FALSE}
@@ -76,13 +76,21 @@ You probably won't remember all of the commands, but it is helpful to understand
 
 Great if you can start with a Stata .dta file, but other formats work too
 
+- `use [data.dta], replace`
 - 
 
-After you read in your data, you may want to familiarize yourself. Some helpful commands:
+Some helpful commands for descriptions of your data.
 
 - `browse`: Opens a window with data table.  
 - `summarize`: Will give you some descriptive statistics. Can use with particular variable list and the details option
 - `list`: Will print observations. Helpful with the in range option.
+- `tab`
+- `tab1`
+- `tabstat`
+
+----
+
+## Visualizing data
 
 ----
 

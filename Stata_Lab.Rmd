@@ -1,0 +1,111 @@
+---
+title: "Stata Lab"
+author: "Michael DiDomenico"
+date: "August 29, 2017"
+output: html_document
+---
+
+
+## Programming Basics
+
+Reproducibility
+
+- Use a .do file and a .log file
+- Consider using a version control system (e.g., GitHub) for your policy analysis
+
+Organization
+
+- Separate stuff you do to build analysis files and analysis
+- Great *Practitioner's Guide*: <https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf>
+
+General tips for readability
+
+- Name things (files, variables) in a way that makes sense
+    + Good: age_mean, age_max, etc.
+    + Bad: age2, age_m
+- Use \/\*comments\*\/ to help people understand your program (including you!)
+- Limit line length to something like 80 characters
+- Put spaces between operational signs and the such
+
+----
+```{Stata eval=FALSE}
+
+/*****************************************************************************
+File name:   H:\stata_lab.do
+Programmer:  Michael DiDomenico
+Date:        09-11-2017
+Input:       some_data.dta
+Output:      some_data.dta
+Description: Short description of what the program does, if it needs to be run 
+             in sequence with other programs, things to watch out for, etc
+Changes:     Consider using version control software so you can more easily 
+             find what is different / causing errors from previous versions.
+*****************************************************************************/
+
+capture log close
+clear
+set more off
+
+cd H:\
+log using "stata_review.log", replace
+
+use some_data
+
+/*do some stuff to the data*/
+
+save some_data, replace
+
+```
+----
+
+## Basic Stata commands
+
+You probably won't remember all of the commands, but it is helpful to understand the general syntax for all commands and how to find correct syntax and options if you get stuck.
+
+- General syntax:
+
+    `[by varlist:] function/command [varlist] [in range] [if expression] , [options]`
+
+- Getting help:
+
+    `help [thing you want to look up]`
+
+----
+
+## Reading in data
+
+Great if you can start with a Stata .dta file, but other formats work too
+
+- 
+
+After you read in your data, you may want to familiarize yourself. Some helpful commands:
+
+- `browse`: Opens a window with data table.  
+- `summarize`: Will give you some descriptive statistics. Can use with particular variable list and the details option
+- `list`: Will print observations. Helpful with the in range option.
+
+----
+
+## Basic data manipulation
+
+Creating new variables
+
+- `gen`: Will create new variables from basic math functions (1 to 1)
+- `egen`: Can create variables based on groupings, e.g., maximum value of a group
+
+Formatting
+
+- `destring [varname], replace`
+- Dealing with dates
+    + Setting up panel data
+    + Careful with data from Excel
+
+Merging
+
+
+Collapsing
+
+
+----
+
+## Simple analysis
